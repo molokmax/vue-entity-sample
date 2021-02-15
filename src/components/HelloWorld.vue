@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <button @click="run2">Execute sample</button>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -31,10 +32,54 @@
 </template>
 
 <script>
+import DataManager from '../persist/DataManager'
+import CacheManager from '../persist/local-api/CacheManager'
+import Sample from '../persist/models/Sample'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    run2() {
+      debugger
+      let dataManager = new DataManager()
+      let rec = new Sample()
+      rec.name = 'test1'
+      rec.prefix = 'sample prefix 1'
+      rec.field = 'zxc'
+      dataManager.add('samples', rec).then(res => {
+        debugger
+        console.log(res)
+      })
+
+      dataManager.getById('samples', 2).then(rec => {
+        rec.prefix = 'qwerty'
+        dataManager.update('samples', rec).then(result => {
+          console.log('result:', result)
+        })
+      })
+    },
+    run() {
+      debugger
+      let cache = new CacheManager()
+      let rec = new Sample()
+      rec.name = 'test1'
+      rec.prefix = 'sample prefix 1'
+      rec.field = 'zxc'
+      cache.add('samples', rec).then(res => {
+        debugger
+        console.log(res)
+      })
+
+      cache.getById('samples', 3).then(rec => {
+        rec.prefix = 'qwerty'
+        cache.update('samples', rec).then(result => {
+          console.log('result:', result)
+        })
+      })
+    }
   }
 }
 </script>

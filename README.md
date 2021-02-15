@@ -27,3 +27,18 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+### TODOS:
+[ ] Cache Strategy
+[ ] Cache State
+[ ] Load and update Cache
+[ ] Remote API
+[ ] Convert DataQuery to local cache query
+[ ] Convert DataQuery to remote api query
+[ ] Library configuration
+[ ] Comments
+[ ] Files location refactoring
+[ ] Tests
+[ ] Config validation
+[ ] 

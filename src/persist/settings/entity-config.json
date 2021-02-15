@@ -1,0 +1,6 @@
+[
+  {
+    "name": "samples",
+    "schema": "++id, name, prefix"
+  }
+]
